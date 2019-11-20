@@ -26,17 +26,17 @@ function getPairing(query) {
 }
 
 function displayResults(responseJson) {
-    let res = responseJson.pairedWines;
+    let list = responseJson.pairedWines;
     $('#results-list').empty();
-    console.log(res);
-    for (let i = 0; i < res.length; i++) {
+    console.log(responseJson);
+    for (let i = 0; i < list.length; i++) {
         $('#results-list').append(
             `<li>
-            <h3>${res[i].pairedWines}</h3>
+            <h3>${list[i].pairedWines}</h3>
             </li>`
         )
     };
-    $('#results-p').html(`<p>${res[i].pairedText}</p>`)
+    $('#results-p').html(`<p>${responseJson.pairedText}</p>`)
     $('#results').removeClass('hidden');
 }
 
