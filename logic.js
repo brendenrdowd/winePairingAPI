@@ -28,7 +28,7 @@ function getPairing(query) {
 function displayResults(responseJson) {
     let res = responseJson.pairedWines;
     $('#results-list').empty();
-    console.log(res)
+    console.log(res);
     for (let i = 0; i < res.length; i++) {
         $('#results-list').append(
             `<li>
