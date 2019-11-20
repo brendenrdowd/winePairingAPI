@@ -1,3 +1,4 @@
+  
 #search{
     background-image: url('https://images.unsplash.com/photo-1535869462434-f92cc30bf40c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80') no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -5,4 +6,8 @@
     -o-background-size: cover;
     background-size: cover;
     height:100vh;
+}
+
+.hidden {
+    display: none;
 }
