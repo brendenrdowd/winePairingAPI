@@ -28,15 +28,15 @@ function getPairing(query) {
 function displayResults(responseJson) {
     let list = responseJson.pairedWines;
     $('#results-list').empty();
-    console.log(responseJson);
     for (let i = 0; i < list.length; i++) {
+        console.log(list[i]);
         $('#results-list').append(
             `<li>
-            <h3>${list[i].pairedWines}</h3>
+            <h3>${list[i]}</h3>
             </li>`
         )
     };
-    $('#results-p').html(`<p>${responseJson.pairedText}</p>`)
+    $('#results-list').append(`<li><p>${responseJson.pairedText}</p></li>`)
     $('#results').removeClass('hidden');
 }
 
