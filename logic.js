@@ -26,7 +26,20 @@ function getPairing(query) {
 }
 
 function displayResults(responseJson) {
-    // oleg
+    let res = responseJson.pairedWines;
+    $('#results-list').empty();
+
+    for (let i = 0; i < res.length; i++) {
+        $('#results-list').append(
+            `<li>
+            <h3>${res[i].pairedWines}</h3>
+            <p>${res[i].pairedText}</p>
+            </li>`
+        )
+    };
+    $('#results').removeClass('hidden');
+}
+
 }
 
 function watchForm() {
