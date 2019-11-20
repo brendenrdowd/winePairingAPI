@@ -36,7 +36,7 @@ function displayResults(responseJson) {
             </li>`
         )
     };
-    $('#results-list').append('<p>${res[i].pairedText}</p>')
+    $('#results-p').html(`<p>${res[i].pairedText}</p>`)
     $('#results').removeClass('hidden');
 }
 
