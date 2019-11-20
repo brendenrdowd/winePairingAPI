@@ -31,6 +31,11 @@ function displayResults(responseJson) {
 
 function watchForm() {
     // brenden
+    $('form').submit(event => {
+        event.preventDefault();
+        const query = $('#query').val();
+        getPairing(query)
+    })
 }
 
 $(watchForm)
