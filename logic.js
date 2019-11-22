@@ -14,9 +14,9 @@ function getPairing(query) {
     })
         .then(response => {
             if (response.ok) {
-                console.log('ok')
                 return response.json();
             }
+            // if(response.status)
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
@@ -26,14 +26,19 @@ function getPairing(query) {
 }
 
 function displayResults(responseJson) {
+    if(responseJson.status == 'failure'){
+        return $('#js-error-message').text(responseJson.message);
+    }
+    else if(responseJson.pairingText == ''){
+        return $('#js-error-message').text(`Could not find pairing information at this time`);
+    }
     let list = responseJson.pairedWines;
     let products = responseJson.productMatches;
-    console.log(responseJson);
     $('#results-list').empty();
     for (let i = 0; i < list.length; i++) {
         $('#results-list').append(
             `<li>
-            <h3>${list[i]}</h3>
+            <h3> ${i +1}. ${list[i]}</h3>
             </li>`
         )
     };
@@ -42,14 +47,14 @@ function displayResults(responseJson) {
     for(let i = 0; i < products.length;i++){
         $('#results-list').append(
             `<li class="card">
-            <img class="center" src=${products[i].imageUrl} alt="product image">
             <h3 class="center">${products[i].title}</h3>
-            <p>${products[i].description}</p>
-            <p>${products[i].price}</p>
+            <img src=${products[i].imageUrl} alt="${products[i].title} image">
+            <p class="card-text">${products[i].description}</p>
+            <h4>${products[i].price}</h4>
             <div class="row">
-                <p>Average Rating: ${products[i].averageRating}</p>
-                <p>Reviews: ${products[i].ratingCount}</p>
-                <p>Score: ${products[i].score}</p>
+                <p>Average Rating: <span class="maroon-info">${products[i].averageRating.toFixed(2)}</span> </p>
+                <p>Reviews:  <span class="maroon-info">${products[i].averageRating.toFixed(2)}</span></p>
+                <p>Score: <span class="maroon-info">${products[i].score.toFixed(2)}</span> </p>
             </div>
             <a class="center" href=${products[i].link}>link</a>
             </li>`

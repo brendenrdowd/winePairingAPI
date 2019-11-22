@@ -6,22 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <title>Wine Pairing</title>
+    <link href="https://fonts.googleapis.com/css?family=Italianno|Raleway&display=swap" rel="stylesheet">
+    <title>Pairings</title>
     <script src="https://kit.fontawesome.com/87d9c152dc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h3 class="red" id="js-error-message"></h3>
     <section id="search" class="vertical-center">
-        <form action="" id="js-form" >
-            <input type="text" name="query" id="query" placeholder="Ingredient, Dish, or Cuisine">
-            <button type="submit"><i class="far fa-search"></i></button>
-        </form>
+        <div class="onboard">
+            <h1>Pairing</h1>
+            <p>Looking for a wine?</p>
+            <p>Type in a food below and we'll provide the perfect pair.</p>
+        </div>
+            <h3 class="red" id="js-error-message"></h3>
+            <form action="" id="js-form">
+                <input type="text" name="query" id="query" placeholder="Ingredient, Dish, or Cuisine">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
     </section>
     <section id="results" class="hidden">
-        <ul id="results-list"></ul>
+            <ul id="results-list"></ul>
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
