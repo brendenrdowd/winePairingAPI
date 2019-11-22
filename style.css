@@ -31,23 +31,26 @@ section{
 
 input{
     padding:10px 20px 10px 10px;
-    width:45vw;
+    width:40vw;
     border-radius: 15px 0 0 15px;
     border:none;
     -moz-box-shadow:    inset 0 0 5px #c0c0c0;
     -webkit-box-shadow: inset 0 0 5px #c0c0c0;
     box-shadow:         inset 0 0 5px #c0c0c0;
-    font-size:1em;
+    font-size:0.75em;
+    /* box-shadow: 5px 10px 18px #290101; */
+    
 }
 
 button{
     padding:10px 15px;
     margin-left:-30px;
     box-sizing: border-box; 
-    height:39px; 
+    height:34px; 
     border-radius:0 15px 15px 0;
     border:none;
     background-color: maroon;
+    /* box-shadow: 5px 10px 18px #290101; */
     color:white;
     cursor:pointer;
 }
@@ -66,9 +69,10 @@ input,button{
 form{
     height:40px;
     /* background-color:gray; */
-    box-shadow: #290101;
+    
     margin:2em;
     display:inline-block;
+    border-radius:15px;
 }
 
 .hidden {
@@ -135,7 +139,11 @@ img{
         max-width: 540px;
     }
     input{
-        width:20vh;
+        width:40vh;
+        font-size:1em;
+    }
+    button{
+        height:39px; 
     }
 }
 
