@@ -104,7 +104,7 @@ h1{
     /* background-color:rgba(255,255,255,0.7); */
     text-align:center;
 }
-.maroon-info{
+a,.maroon-info{
     color:maroon;
     font-weight:bold;
 }

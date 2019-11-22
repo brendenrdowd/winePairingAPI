@@ -64,7 +64,6 @@ function displayResults(responseJson) {
         return $('#js-error-message').text(`Could not find pairing information at this time`);
     }
     let list = responseJson.pairedWines;
-    let products = responseJson.productMatches;
     $('#results-list').empty();
     $('#reco-list').empty();
     $('#results-list').append(`<li><p>${responseJson.pairingText}</p></li>`);
@@ -75,27 +74,14 @@ function displayResults(responseJson) {
             </li>`
         )
     };
-    // for (let i = 0; i < products.length; i++) {
-    //     $('#results-list').append(
-    //         `<li class="card">
-    //         <h3 class="center">${products[i].title}</h3>
-    //         <img src=${products[i].imageUrl} alt="${products[i].title} image">
-    //         <p class="card-text">${products[i].description}</p>
-    //         <h4>${products[i].price}</h4>
-    //         <div class="row">
-    //             <p>Average Rating: <span class="maroon-info">${products[i].averageRating.toFixed(2)}</span> </p>
-    //             <p>Reviews:  <span class="maroon-info">${products[i].averageRating.toFixed(2)}</span></p>
-    //             <p>Score: <span class="maroon-info">${products[i].score.toFixed(2)}</span> </p>
-    //         </div>
-    //         <a class="center" href=${products[i].link}>link</a>
-    //         </li>`
-    //     )
-    // }
     $('#results').removeClass('hidden');
 }
 
 function displayRecommendations(responseJson) {
     const wines = responseJson.recommendedWines;
+    if (responseJson.recommendedWines.length == 0) {
+        return $('#js-error-message').text(`Could not find wines at this time`);
+    }
     $('#reco-list').empty();    
     for (let i = 0; i < wines.length; i++) {
         $('#reco-list').append(
