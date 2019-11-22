@@ -1,6 +1,9 @@
 const searchUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?food="
 const recoURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?minRating=0.7&number=5&wine="
 
+const BRENDEN_KEY = "OFFLINE"
+const OLEG_KEY = "OFFLINE"
+
 function formatQuery(query){
     let newQuery = "";
     for(let i = 0;i<query.length;i++){
@@ -19,7 +22,7 @@ function getPairing(query) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe" //brenden api key
+            "x-rapidapi-key":  BRENDEN_KEY//brenden api key
         }
     })
         .then(response => {
@@ -41,7 +44,7 @@ function getRecommendations(wine) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96" //Oleg api key
+            "x-rapidapi-key": OLEG_KEY //Oleg api key
         }
     })
         .then(response => {
