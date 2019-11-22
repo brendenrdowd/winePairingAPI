@@ -11,6 +11,7 @@ function formatQuery(query){
 
 function getPairing(query) {
     // brenden
+    $('#js-error-message').text(``);
     const q = formatQuery(query);
     const url = searchUrl + q;
 
@@ -35,9 +36,7 @@ function getPairing(query) {
 
 function getRecommendations(wine) {
     const q = formatQuery(wine);
-    console.log('hitting GR function',wine)
     const url = recoURL + q;
-    console.log("URL:",url)
     fetch(url, {
         "method": "GET",
         "headers": {
@@ -47,7 +46,6 @@ function getRecommendations(wine) {
     })
         .then(response => {
             if (response.ok) {
-                console.log("ok")
                 return response.json();
             }
             throw new Error(response.statusText);
@@ -97,7 +95,6 @@ function displayResults(responseJson) {
 }
 
 function displayRecommendations(responseJson) {
-    console.log('firing DR',responseJson);
     const wines = responseJson.recommendedWines;
     $('#reco-list').empty();    
     for (let i = 0; i < wines.length; i++) {
@@ -134,6 +131,7 @@ function watchForm() {
     // brenden
     $('form').submit(event => {
         event.preventDefault();
+
         const query = $('#query').val();
         getPairing(query)
     })
