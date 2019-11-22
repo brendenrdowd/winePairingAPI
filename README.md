@@ -4,4 +4,4 @@ Wine Pairer uses the Food API to take a user's search query (a dish, cuisine, or
 
 ## To Do
 - [ ] CSS needs to be tightened on second API placeholder
-- [ ] attach a second API (waiting on key/looking for new ones)
+- [ X ] attach a second API (waiting on key/looking for new ones)
