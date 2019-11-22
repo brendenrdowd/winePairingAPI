@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <title>Pairings</title>
     <link href="https://fonts.googleapis.com/css?family=Italianno|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/87d9c152dc.js" crossorigin="anonymous"></script>
@@ -28,8 +28,11 @@
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </section>
-    <section id="results" class="hidden">
-        <ul id="results-list"></ul>
+    <section id="results"> <!--return hidden class when done testing-->
+        <ul id="results-list">
+            <a href="#" class="js-reco" data-value="pinot noir">test link</a>
+        </ul>
+        <ul id="reco-list"></ul>
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
