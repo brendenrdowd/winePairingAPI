@@ -128,7 +128,7 @@ img{
 }
 
 /* responsiveness */
-@media(max-width:450px){
+@media(max-width:535px){
     h1{
         font-size:5em
     }

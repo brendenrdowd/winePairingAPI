@@ -16,7 +16,6 @@ function getPairing(query) {
             if (response.ok) {
                 return response.json();
             }
-            // if(response.status)
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
