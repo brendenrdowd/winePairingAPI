@@ -90,7 +90,7 @@ function displayRecommendations(responseJson) {
         $('#reco-list').append(
             `<li class="spacing">
                 <h3 class="spacing">${wines[i].title}</h3>
-                <img src=${wines[i].imageUrl} alt="${wines[i].title} class="spacing">
+                <img src=${wines[i].imageUrl} alt="${wines[i].title}">
                 <p class="card-text spacing">${wines[i].description}</p>
                 <h4>${wines[i].price}</h4>
                 <div class="row spacing">
