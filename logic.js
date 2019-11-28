@@ -1,12 +1,12 @@
 const searchUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?food="
 const recoURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?minRating=0.7&number=5&wine="
 
-const BRENDEN_KEY = "OFFLINE"
-const OLEG_KEY = "OFFLINE"
+const BRENDEN_KEY = "fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe";
+const OLEG_KEY = "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96";
 
-function formatQuery(query){
+function formatQuery(query) {
     let newQuery = "";
-    for(let i = 0;i<query.length;i++){
+    for (let i = 0; i < query.length; i++) {
         query[i] == " " ? newQuery += "%20" : newQuery += query[i];
     }
     return newQuery;
@@ -22,7 +22,7 @@ function getPairing(query) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key":  BRENDEN_KEY//brenden api key
+            "x-rapidapi-key": BRENDEN_KEY//brenden api key
         }
     })
         .then(response => {
@@ -85,33 +85,31 @@ function displayRecommendations(responseJson) {
     if (responseJson.recommendedWines.length == 0) {
         return $('#js-error-message').text(`Could not find wines at this time`);
     }
-    $('#reco-list').empty();    
+    $('#reco-list').empty();
     for (let i = 0; i < wines.length; i++) {
         $('#reco-list').append(
-            `<li>
-                <div>
-                    <h3 class="center">${wines[i].title}</h3>
-                    <img src=${wines[i].imageUrl} alt="${wines[i].title}">
-                    <p class="card-text">${wines[i].description}</p>
-                    <h4>${wines[i].price}</h4>
-                    <div class="row">
-                        <p>Average Rating: <span class="maroon-info">${wines[i].averageRating.toFixed(2)}</span> </p>
-                        <p>Reviews:  <span class="maroon-info">${wines[i].averageRating.toFixed(2)}</span></p>
-                        <p>Score: <span class="maroon-info">${wines[i].score.toFixed(2)}</span> </p>
-                    </div>
-                    <a class="center" target="_blank" href=${wines[i].link}>link</a>
+            `<li class="spacing">
+                <h3 class="spacing">${wines[i].title}</h3>
+                <img src=${wines[i].imageUrl} alt="${wines[i].title} class="spacing">
+                <p class="card-text spacing">${wines[i].description}</p>
+                <h4>${wines[i].price}</h4>
+                <div class="row spacing">
+                    <p>Average Rating: <span class="maroon-info">${wines[i].averageRating.toFixed(2)}</span> </p>
+                    <p>Reviews:  <span class="maroon-info">${wines[i].averageRating.toFixed(2)}</span></p>
+                    <p>Score: <span class="maroon-info">${wines[i].score.toFixed(2)}</span> </p>
                 </div>
+                <a class="center" target="_blank" href=${wines[i].link}>link</a>
             </li>`
         );
     }
 }
 
-function watchLink(){
-    $('#results-list').on('click','.js-reco',function(event){ 
+function watchLink() {
+    $('#results-list').on('click', '.js-reco', function (event) {
         event.preventDefault();
         const wine = $(this).data("value");
-        getRecommendations(wine); 
-        return false; 
+        getRecommendations(wine);
+        return false;
     });
 }
 
