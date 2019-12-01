@@ -4,6 +4,7 @@ const recoURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/foo
 const BRENDEN_KEY = "fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe";
 const OLEG_KEY = "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96";
 
+
 function formatQuery(query) {
     let newQuery = "";
     for (let i = 0; i < query.length; i++) {
@@ -28,8 +29,11 @@ function getPairing(query) {
         .then(response => {
             if (response.ok) {
                 return response.json();
+            }else if(response.hasIssues){
+
+            }else{
+                throw new Error(response.statusText);
             }
-            throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
         .catch(err => {
@@ -82,9 +86,12 @@ function displayResults(responseJson) {
 
 function displayRecommendations(responseJson) {
     const wines = responseJson.recommendedWines;
+    errorMessage = $('#js-error-message');
+    errorMessage.text(`Could not find wines at this time`);
     if (responseJson.recommendedWines.length == 0) {
         return $('#js-error-message').text(`Could not find wines at this time`);
     }
+    // else should be catch
     $('#reco-list').empty();
     for (let i = 0; i < wines.length; i++) {
         $('#reco-list').append(
