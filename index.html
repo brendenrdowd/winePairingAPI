@@ -16,19 +16,19 @@
 </head>
 
 <body>
-    <section id="search" class="vertical-center">
+    <section id="search" class="vertical-center" aria-live="polite">
         <div class="onboard">
             <h1>Pairings</h1>
             <p>Looking for a wine?</p>
             <p>Type in a food below and we'll provide the perfect pairing.</p>
         </div>
-        <h3 class="red" id="js-error-message"></h3>
-        <form action="" id="js-form">
+        <h3 class="red" id="js-error-message" aria-live="assertive"></h3>
+        <form action="logic.js" id="js-form">
             <input type="text" name="query" id="query" placeholder="Ingredient, Dish, Cuisine">
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </section>
-    <section id="results" class="hidden"> 
+    <section id="results" class="hidden" aria-live="polite"> 
         <ul id="results-list"></ul>
         <ul id="reco-list"></ul>
     </section>

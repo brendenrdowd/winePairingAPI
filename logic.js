@@ -97,7 +97,7 @@ function displayRecommendations(responseJson) {
         $('#reco-list').append(
             `<li class="spacing">
                 <h3 class="spacing">${wines[i].title}</h3>
-                <img src=${wines[i].imageUrl} alt="${wines[i].title} class="spacing">
+                <img src=${wines[i].imageUrl} alt="${wines[i].title}">
                 <p class="card-text spacing">${wines[i].description}</p>
                 <h4>${wines[i].price}</h4>
                 <div class="row spacing">
@@ -105,7 +105,7 @@ function displayRecommendations(responseJson) {
                     <p>Reviews:  <span class="maroon-info">${wines[i].averageRating.toFixed(2)}</span></p>
                     <p>Score: <span class="maroon-info">${wines[i].score.toFixed(2)}</span> </p>
                 </div>
-                <a class="center" href=${wines[i].link}>link</a>
+                <a class="center" target="_blank" href=${wines[i].link}>link</a>
             </li>`
         );
     }
