@@ -1,8 +1,11 @@
-const searchUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?food="
-const recoURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?minRating=0.7&number=5&wine="
+const store ={
+    searchUrl:"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?food=",
+    recoURL: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?minRating=0.7&number=5&wine=",
+    BRENDEN_KEY:"fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe",
+    OLEG_KEY: "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96"
+}
 
-const BRENDEN_KEY = "fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe";
-const OLEG_KEY = "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96";
+
 
 function formatQuery(query) {
     let newQuery = "";
@@ -13,16 +16,15 @@ function formatQuery(query) {
 }
 
 function getPairing(query) {
-    // brenden
     $('#js-error-message').text(``);
     const q = formatQuery(query);
-    const url = searchUrl + q;
+    const url = store.searchUrl + q;
 
     fetch(url, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": BRENDEN_KEY//brenden api key
+            "x-rapidapi-key": store.BRENDEN_KEY
         }
     })
         .then(response => {
@@ -38,13 +40,14 @@ function getPairing(query) {
 }
 
 function getRecommendations(wine) {
+    $('js-error-message').text('');
     const q = formatQuery(wine);
-    const url = recoURL + q;
+    const url = store.recoURL + q;
     fetch(url, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": OLEG_KEY //Oleg api key
+            "x-rapidapi-key": store.OLEG_KEY 
         }
     })
         .then(response => {
@@ -82,6 +85,8 @@ function displayResults(responseJson) {
 
 function displayRecommendations(responseJson) {
     const wines = responseJson.recommendedWines;
+    errorMessage = $('#js-error-message');
+    errorMessage.text(`Could not find wines at this time`);
     if (responseJson.recommendedWines.length == 0) {
         return $('#js-error-message').text(`Could not find wines at this time`);
     }
@@ -113,7 +118,6 @@ function watchLink() {
     });
 }
 
-
 function watchForm() {
     // brenden
     $('form').submit(event => {
@@ -124,5 +128,9 @@ function watchForm() {
     })
 }
 
-$(watchForm)
-$(watchLink)
+function intialize(){
+    $(watchForm)
+    $(watchLink)
+}
+
+$(intialize)
