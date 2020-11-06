@@ -2,7 +2,7 @@ const store ={
     searchUrl:"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/pairing?food=",
     recoURL: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/recommendation?minRating=0.7&number=5&wine=",
     BRENDEN_KEY:"fT7bfv7YGGmshOWpHRupMoc5eXzLp1mUWeEjsn9TtTgMefEoGe",
-    OLEG_KEY: "2145f85faemshaf2d21d064b7729p1c43f8jsn554d2c587e96"
+    OLEG_KEY: "c850e6ab0emsh9017fe66e6abe0dp17c4f0jsn0a8aa63ab92f"
 }
 
 
